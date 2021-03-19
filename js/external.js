@@ -9,7 +9,7 @@ var lm = parseFloat(prompt("How many days would you like to rent the little merm
 var bb = parseFloat(prompt("How many days would you like to rent the Brother bear for?"));
 var h = parseFloat(prompt("Have you heard about the movie Hercules? How many days would you like to rent that one?"));
 var total = (lm + bb + h) * cost;
-alert("your total is going to be " + total);
+alert("your total is going to be " + total + " Dollars");
 
 var gg = parseFloat(prompt("you get paid 400$ per hour at Google how many hours would you like to work?"));
 var am = parseFloat(prompt("you get paid 380$ per hour at Google how many hours would you like to work?"));
@@ -21,12 +21,9 @@ var totalHrs = ((gg * gr) +(am * ar) +(fb * fr));
 alert("based on the hours you chose you will make " + totalHrs + " dollars in a week")
 
 // A student can be enrolled in a class only if the class is not full and the class schedule does not conflict with her current schedule.
-var classSize = parseFloat(prompt("How many people are in your cohort at Codeup?"));
-var studentsSignedUp = parseFloat(prompt("How many people are signed up and registered for class?"));
-var classTime = parseFloat(prompt("What is your preferred time to go to class? We will tell you if it fits in your schedule. 9? 10? or 12?"));
-var noConflict = classTime <= 12;
-var classOpen = classSize > studentsSignedUp;
-var canRegister = noConflict && classOpen;
+var classHasRoom = confirm("Hi is there room in the neptune cohort?");
+var noScheduleConflict = confirm("Can you take a class that starts at 9am?");
+var canRegister = classHasRoom && noScheduleConflict;
 alert("You are allowed to register: " + canRegister);
 
 /**
@@ -37,14 +34,14 @@ alert("You are allowed to register: " + canRegister);
  * Use an alert to show the results of each problem.
  */
 
-var options = "\n0: no \n1: yes"
+
 var numberOfItems = parseFloat(prompt("you can only buy more than two items to get the discount how many items would you like to buy?"));
-var offerIsExpired = parseFloat(prompt("Is the offer expired?" + options));
-var isPremiumMember = parseFloat(prompt("Are you a premium member?" + options));
+var offerIsExpired = confirm("Is the offer expired?");
+var isPremiumMember = confirm("Are you a premium member?");
 
 var hasEnoughItems = numberOfItems > 2;
 var canBuy = (isPremiumMember || hasEnoughItems) && !offerIsExpired;
-alert("Can you buy: " + canBuy);
+alert("You can use the discount: " + canBuy);
 
 
 

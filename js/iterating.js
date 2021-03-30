@@ -29,7 +29,7 @@ console.log(names.length);
      */
 for (var i = 0; i < names.length; i++) {
     console.log(names[i]);
-// }
+}
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop

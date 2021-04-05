@@ -157,7 +157,9 @@ var books = [
                 lastName: authorName[authorName.length - 1] // skip middle name(s)
             }
         }
-    }
+    };
+    books.push(createBook("Yoga for Beginners","Yogi Master"));
+
     function showBookInfo(book) {
             console.log("Title: " + book.title);
             console.log("Author: " + book.author.firstName + " " + book.author.lastName);

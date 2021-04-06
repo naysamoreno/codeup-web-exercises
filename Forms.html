@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Register With Us</title>
+</head>
+<h1>Form</h1>
+<h2>Exploring the ever present forms in HTML</h2>
+<label for="username" > Usermame</label>
+<input id="username" name="username" type="text" placeholder="Username Here">
+<br>
+
+<label for="password"> Password</label>
+<input id="password" name="password" type="password" placeholder="Password Here">
+<br>
+<h3>Describe yourself in 1 sentence.</h3>
+<p>
+    <textarea placeholder="type here"></textarea> <br>
+</p>
+<button>Submit</button>
+<!--Create a "How did you hear about us" section that contains radio buttons. The values should be "billboard", "radio advertisement", "internet advertisement", and "other". Only one of the values should be allowed to be selected at a time.-->
+<h3>How did you hear about us?</h3>
+<label>
+    <input type="radio" id="os1" name="os[]" value="Billboard">Billboard
+</label>
+<label>
+    <input type="radio" id="os2" name="os[1]" value="Radio">Radio
+</label>
+<label>
+    <input type="radio" id="os3" name="os[2]" value="Internet Advertisement">Internet Advertisement
+</label>
+<label>
+    <input type="radio" id="os4" name="os[3]" value="other">Other
+</label>
+
+<!--Change these inputs so that multiple answers are allowed to be selected.-->
+<!--Create a dropdown that asks the user what web browser they are using.-->
+<br>
+<p>Wbat browser are you using? select below. </p>
+<label for="browser">Browser Options</label>
+<br>
+<select id="browser" name="browser">
+    <option selected value="1">Chrome</option>
+    <option value="0">Internet Explorer</option>
+    <option value="3">Safari</option>
+    <option value="04">Other</option>
+</select>
+</html>

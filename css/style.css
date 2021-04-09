@@ -1,6 +1,50 @@
+
+
 .fancy-header{
-   color: purple;
+   color: darkblue;
+    font-family: BubbleGum;
+
+}
+
+body {
+    margin-top: 80px;
+    font-family: Helvetica Neue, Montserrat, Ubuntu, Helvetica, Arial, sans-serif;
+    background-color: lightskyblue;
+    background-image: url("../img/cloud-technology.png");
+    background-size: 9%;
+    background-repeat: no-repeat;
+    background-position: top;
+
 }
 p {
-    font-family: "Arial Hebrew Scholar";
+    margin: auto;
+
+}
+ol {
+    font-family: BubbleGum;
+}
+ul {
+    font-family: BubbleGum;
+    font-stretch: expanded;
+    list-style: square;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border: thin solid navajowhite;
+}
+td, th {
+    border: thin dotted grey;
+    padding: 55px;
+    font-family: "Helvetica Neue";
+    font-size: xx-large;
+}
+th {
+    background-color: beige;
+    font-family: BubbleGum;
+}
+#container {
+    margin: 50px auto;
+    width: 500px;
+    padding: 10px;
 }

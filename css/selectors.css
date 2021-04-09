@@ -5,6 +5,7 @@
     padding: 10px;
 }
 
+
 /*  selector for all "h1" elements
     that are a descendent of id="container"
     and have a class of "fancy-header" */
@@ -25,6 +26,6 @@ em {
 
 /*  selector for all "anchor" elements
     that are a direct child of an element with class="article" */
-.article a {
+.article>a {
     float:right;
 }

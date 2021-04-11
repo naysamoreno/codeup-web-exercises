@@ -1,8 +1,11 @@
 
-
+.extra-large {
+    font-size: 50px;
+}
 .fancy-header{
-   color: darkblue;
-    font-family: BubbleGum;
+   color: purple;
+    text-decoration-line: underline;
+    font-family: ;
 
 }
 
@@ -11,9 +14,12 @@ body {
     font-family: Helvetica Neue, Montserrat, Ubuntu, Helvetica, Arial, sans-serif;
     background-color: lightskyblue;
     background-image: url("../img/cloud-technology.png");
-    background-size: 9%;
+    background-size: 5%;
     background-repeat: no-repeat;
     background-position: top;
+
+}
+.center {
 
 }
 p {

@@ -1,38 +1,71 @@
-
+html, body {
+    color: #232020;
+}
 .extra-large {
-    font-size: 50px;
+    font-size: 65px;
+}
+.medium-font {
+    margin: 50px;
+    font-family: 'Space Mono', monospace;
+    font-size: 35px;
+    width: auto;
 }
 .fancy-header{
-   color: purple;
-    text-decoration-line: underline;
-    font-family: ;
+    color: white;
+    text-shadow: black 4px 4px;
+    font-family: 'Bebas Neue', cursive;
 
+}
+hr {
+    border: 5px solid darkblue;
 }
 
 body {
-    margin-top: 80px;
-    font-family: Helvetica Neue, Montserrat, Ubuntu, Helvetica, Arial, sans-serif;
-    background-color: lightskyblue;
-    background-image: url("../img/cloud-technology.png");
-    background-size: 5%;
-    background-repeat: no-repeat;
+    margin: 100px;
+    font-family: 'Bebas Neue', cursive;
+    background-color: #c4e5ff;
+    /*background-image: url("../img/cloud-technology.png");*/
+    background-image: url("../img/blue-circuit.png");
+    background-size: 700px;
+    background-repeat: repeat-x;
     background-position: top;
 
 }
-.center {
 
+h3 {
+    display: inline-block;
 }
-p {
-    margin: auto;
 
+h3 {
+    text-decoration-line: underline;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
 }
-ol {
-    font-family: BubbleGum;
+div.center{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+img {
+    border: 11px solid #23395b;
+    border-radius: 20px;
+    box-shadow: 4px 4px 3px #00000036;
+}
+
+
+ol, ul {
+    text-align: center;
+    font-size: xx-large;
+    length: 500px;
+    display: inline-block;
 }
 ul {
-    font-family: BubbleGum;
-    font-stretch: expanded;
     list-style: square;
+    font-size: xx-large;
+
 }
 table {
     margin-left: auto;
@@ -42,15 +75,39 @@ table {
 td, th {
     border: thin dotted grey;
     padding: 55px;
-    font-family: "Helvetica Neue";
+    font-family: 'Bebas Neue', cursive;
     font-size: xx-large;
 }
 th {
     background-color: beige;
-    font-family: BubbleGum;
+    font-family: 'Bebas Neue', cursive;
 }
 #container {
-    margin: 50px auto;
-    width: 500px;
-    padding: 10px;
+    margin: 5px auto;
+    width: 700px;
+    padding: 100px;
+}
+/* go to https://coolors.co/ for color scheme generator*/
+.black {
+    color: #161925;
+}
+
+.dark-blue {
+    color: #23395b;
+}
+
+.light-blue {
+    color: #c4e5ff;
+}
+
+.white {
+    color: #f4e9cd;
+}
+
+.pink {
+    color: #f9d4f9;
+}
+
+.red {
+    color: #d72638;
 }

@@ -1,0 +1,81 @@
+html, body, nav {
+    margin: 0;
+    background: #e4e4e4;
+}
+
+nav {
+    background: #c1c1c1;
+    color: #040404;
+    position: relative;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0.2em 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*gap: 10px;*/
+
+    list-style: none;
+    font-weight: bold;
+}
+nav li {
+    display: inline-block;
+    font-family: "Work Sans", sans-serif;
+}
+
+a {
+    display: inline-block;
+    cursor: pointer;
+    padding: 1.35em 5px;
+}
+a:hover {
+    color: blue;
+}
+
+nav * {
+    box-sizing: border-box;
+}
+
+#jobs {
+    flex-grow: 1;
+}
+
+#logo {
+    font-family: Montserrat, sans-serif;
+    font-size: 3em;
+
+    position: absolute;
+    bottom: 0;
+
+    /*flex-grow: 2;*/
+}
+#logo a {
+    padding: 0.2em 0;
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+    border-top: 2px solid #b0b0b0;
+    text-transform: uppercase;
+}
+
+footer a {
+    transition: color 0.3s ease-in;
+}
+
+footer nav ul {
+    justify-content: flex-start;
+    padding: 1em 2.25em;
+    gap: 10px;
+}
+
+#copyright {
+    margin-left: auto;
+    opacity: 0.5;
+    text-transform: none;
+    pointer-events: none;
+}

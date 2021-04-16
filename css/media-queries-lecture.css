@@ -1,0 +1,117 @@
+/*!*mobile layout first design*!*/
+/*body {*/
+/*    font-family: sans-serif;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    margin: 26px;*/
+/*}*/
+/*.alert-info {*/
+/*    box-sizing: border-box;*/
+/*    border: 2px solid lightgrey;*/
+/*    background: lightblue;*/
+/*    padding: 12px;*/
+/*    width: 100%;*/
+/*    text-align: center;*/
+/*}*/
+/*.alert-info a {*/
+/*    font-size: small;*/
+/*    text-decoration: none;*/
+/*    color: black;*/
+/*}*/
+/*h1 {*/
+/*    text-align: center;*/
+/*}*/
+/*.nav-links {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    list-style: none;*/
+/*}*/
+/*.nav-links li {*/
+/*    box-sizing: border-box;*/
+/*    background-color: lightgrey;*/
+/*    width: 100%;*/
+/*!*    to seperate the boxes we give a margin*!*/
+/*    margin: 5px 0;*/
+/*    padding: 12px;*/
+/*    font-size: small;*/
+/*    text-align: center;*/
+/*}*/
+/*img {*/
+/*    width: 100%;*/
+/*}*/
+/*.sub-section {*/
+/*    font-style: italic;*/
+/*}*/
+
+
+/*MR Ruedas Code*/
+
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 26px;
+}
+.alert-info {
+    box-sizing: border-box;
+    border: 2px solid lightgrey;
+    background-color: lightskyblue;
+    padding: 12px;
+    width: 100%;
+    text-align: center;
+}
+.alert-info a {
+    text-decoration: none;
+    color: black;
+    font-size: small;
+}
+h1 {
+    text-align: center;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+}
+.nav-links li {
+    box-sizing: border-box;
+    background-color: lightgrey;
+    width: 100%;
+    margin: 5px 0;
+    padding: 12px;
+    font-size: small;
+    text-align: center;
+}
+img {
+    width: 100%;
+}
+.sub-section {
+    font-style: italic;
+}
+@media screen and (min-width: 768px) {
+    body {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .nav-links {
+        flex-direction: row;
+    }
+    .nav-links li {
+        background: none;
+    }
+    .header-img {
+        width: 100%;
+    }
+    .alert-info {
+        display: none;
+    }
+    .main {
+        width: 50%;
+    }
+    .sub-section {
+        width: 35%;
+    }
+}

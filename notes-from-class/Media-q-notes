@@ -1,0 +1,10 @@
+Media Queries
+
+@media screen and (max-width: 768px) {
+    anything that you want to change put in here for example
+    for any element you would like to change
+
+    #container {
+    display: none;
+    }
+}

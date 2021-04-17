@@ -1,0 +1,6 @@
+.pizza-pic {
+    background-image: url("../img/pizza.png");
+}
+.opaque-bg {
+    background: rgba(255,255,255, 0.7);
+}

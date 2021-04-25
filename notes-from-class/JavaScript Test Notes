@@ -1,0 +1,78 @@
+--Primitive Types--
+1. Boolean
+2. Number
+3. String
+4. *Undefined
+5. *Null
+
+--Complex Type--
+1. Object
+2. Function
+3. Array
+
+--Operators--
+
++ addition
+- subtraction
+* multiplication
+/ division
+% modulus (remainder of what is divided)
+
+-- String Concatenation --
+using the + operator you can add strings together
+ex. "hello, " + "world!" = "hello, world!'
+
+-- Logical Booleans --
+
+1. && AND -- True if both are true, false otherwise
+2. || OR -- True if at least one is true, false otherwise
+3 ! NOT -- the opposite
+
+-- Comparison --
+1. == Equal in value
+2. === Equal in type and value
+3. != not equal in value
+4. !== not equal in type and value
+
+-- Converting between numbers and Strings --
+var x = 3.14;
+x.toString(); // "3.14"
+x.toFixed(3); // "3.140"
+
+Number('123') // 123
+Number('0.9') // 0.9
+
+Number('asdf') // NaN (Not a Number)
+
+isNaN(42) // true
+
+parseInt: attempts to convert a string to an integer value (whole number)
+
+parseFloat: attempts to convert a string to a floating point (i.e. decimal) value
+Number('123abc') // NaN
+parseInt('123abc') // 123
+
+.length: property that describes the number of characters in the string.
+.indexOf(char): returns the index of the specified character in the string.
+.replace(find, replace): returns a copy of the string after performing a substitution.
+.substring(fromIndex, toIndex): returns a subset of the original string based on the provided indices.
+.toUpperCase(): returns a copy of the string in all upper case.
+.toLowerCase(): returns a copy of the string in all lower case.
+.trim(): returns a copy of the string with whitespace at the beginning and end removed.
+
+--User Interaction --
+
+alert("message here") -- sends an alert to the user
+
+confirm("message") -- responds either true or false
+
+prompt("type something request") -- allows the user to give a response and can be saved as a variable
+
+ex.
+var userInput = prompt('Please type something:');
+console.log('The user entered: ' + userInput);
+
+-- Functions --
+REUSABLE BLOCK OF CODE THAT PERFORMS A SPECIFIC TASK
+
+functionName("argument")

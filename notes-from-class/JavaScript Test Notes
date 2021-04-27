@@ -66,7 +66,8 @@ alert("message here") -- sends an alert to the user
 
 confirm("message") -- responds either true or false
 
-prompt("type something request") -- allows the user to give a response and can be saved as a variable
+prompt("type something request") -- allows the user to give a
+response and can be saved as a variable
 
 ex.
 var userInput = prompt('Please type something:');
@@ -145,3 +146,44 @@ do {
 } while (i < 10);
 
 -- For Loops ----------------------------------------------
+for (/*initialization*/; /*condition*/; /*increment*/) {
+    // body
+}
+EXAMPLE
+for (var i = 0; i < 10; i++) {
+    console.log('for loop iteration #' + i);
+}
+
+------ Break and Continue ---------------------------------------
+Break~~~~~~~
+
+once a condition is met and you want it to stop use Break
+var numberToStopAt = 5;
+
+for (var i = 1; i < 100; i++) {
+
+    console.log('Loop counter is: ' + i);
+
+    if (i === numberToStopAt) {
+        console.log('We have reached the stopping point: break!');
+        // use the break keyword to exit from the while loop
+        break;
+        // nothing after the break will get processed
+        console.log('You will never see this line.');
+    }
+}
+Continue ~~~~~~~~~
+in the continue case whatever condition you set in the if statement can be
+skipped over. In the example below anything that is NOT even will not be displayed.
+
+for (var i = 1; i < 100; i++) {
+
+    if (i % 2 !== 0) {
+        // number isn't even
+        // odd numbers aren't as cool
+        // skip the rest of the loop and continue with the next iteration
+        continue;
+    }
+
+    console.log('Here is a lovely even number: ' + i);
+}

@@ -165,7 +165,12 @@ var books = [
             console.log("Author: " + book.author.firstName + " " + book.author.lastName);
     }
 
-
+function makeCar(make, model) {
+        return {
+            make: make,
+            model: model
+        }
+}
 
 
 })();

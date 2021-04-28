@@ -187,3 +187,34 @@ for (var i = 1; i < 100; i++) {
 
     console.log('Here is a lovely even number: ' + i);
 }
+----- SPLICE ---------------------------------------
+example
+var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+var slice = colors.slice(2, 4);
+*/ slice(2,4) starts at the 2nd index and only takes away ( pizza slices) the index to the left from the 4th index
+console.log(colors); // colors is unchanged
+// ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+
+console.log(slice); // ['yellow', 'green']
+
+slice = colors.slice(3);
+console.log(slice); // ['green', 'blue', 'indigo', 'violet']
+
+*****NOTE if you want to change the array use SPLICE not SLICE*****
+------------ ARRAY EXAMPLE -----------------
+string concatenation
+
+function likes(names) {
+  if(names.length === 0) {
+    return "no one likes this";
+  } else if(names.length === 1) {
+    return names[0] + " likes this";
+  } else if(names.length === 2) {
+    return names[0] + " and " + names[1] + " like this";
+  } else if(names.length === 3) {
+    return names[0] + ", " + names[1] + " and " + names[2] + " like this";
+  } else {
+    var numberOfOthers = names.length - 2;
+    return names[0] + ", " + names[1] + " and " + numberOfOthers + " others like this";
+  }
+}

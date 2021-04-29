@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <title>JQuery Excercise</title>
     <script src="js/jquery-3.6.0.min.js"></script>
-    <script>$(document).ready(function($) {alert("DOM has finished loading");});</script>
+
 </head>
 <body>
+<h1 id="header">This is a C O O L header</h1>
+<p class="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aut blanditiis cumque, dolores doloribus eius hic, itaque omnis ratione reiciendis velit voluptatum? Aut distinctio in libero necessitatibus placeat possimus ut.</p>
+<p class="codeup">Red border?</p>
+<h1>A random list of things I like</h1>
+<div id="wrapper">
+<!--    <div id="wrapper">another element</div>-->
+    <ul >
+        <li id="random-list" class="item-list">lavendar milk bubble tea</li>
+        <li class="item-list">writing random lists</li>
+        <li class="item-list">looking forward to getting bubble tea after class</li>
+    </ul>
+</div>
+<script>
+    $(document).ready(function($) {
+        var theDiv = $('#wrapper').text();
+        alert(theDiv);
+        var theListIntro = $("#random-list").html();
+        alert(theListIntro);
+        $('.item-list').css();
 
+        var contents = $('#header').text();
+        alert(contents);
+
+        // alert("DOM has finished loading");
+
+    });
+
+</script>
 </body>
 </html>

@@ -1,0 +1,95 @@
+
+
+------ Is Negative ---
+function isNegative(input) {
+    return input < 0;
+    }
+
+---- Is Ten -----
+function isTen (num) {
+    return num === 10;
+    }
+
+------- Double ----
+function isDouble(number) {
+    return number * 2
+    }
+
+---- If it is 9 ----
+function remove9s(array) {
+    var noNines = [];
+    array.forEach(function(element) {
+        if (element !== 9) {
+            noNines.push(element) {
+            }
+        })
+    console.log(noNines);
+    return noNines;
+}
+
+----- calculate average of the array ---
+function average(array) {
+    var sumOfNumbers = 0
+    array.forEach(function(number) {
+        sumOfNumbers += number;
+    })
+    return SumofNumbers / array.length
+}
+
+----- Count Odds ----
+function countOdds(array) {
+    var oddsOnly = [];
+    array.forEach(function(number) {
+        if(parseFloat(number) % 2 === 1) {
+            oddsOnly.push(number);
+        }
+    })
+    return oddsOnly;
+}
+
+----- average sales -----
+function averageSales(array) {
+    var totalSales = [];
+    array.forEach(function(salesPerson){
+        totalSales.push(salesPerson.sales);
+    })
+    return average(totalSales);
+}
+
+------  name to Object -----
+function convertsNameToObject(string) {
+    var fullName = string.split(" ");
+    var object = {
+        firstName: fullName[0];
+        lastName: fullName[1];
+    }
+    return obj;
+}
+
+------ is Vowel -------
+function countVowels(string){
+    var allLetters = string.split(" ");
+    var vowelsOnly = [];
+    allLetters.forEach(function(letter) {
+        if(letter === "a" || letter === "e" || letter === "i" || letter === "o" || letter === "u") {
+            vowelsOnly.push(letter)
+        }
+    })
+    return vowelsOnly.length;
+}
+
+------ Analyze Word -----
+function analyzeWord(str) {
+    return {word: str, numberOfLetters: str.length, numberOfVowels: countVowels(str)}
+}
+
+function capitalizeName(str) {
+    var fullName = str.split(" ");
+    var firstName = fullName[0]
+    var lastName = fullName[1]
+
+    firstName = firstName.CharAt(0).toUpperCase() + firstName.slice(1);
+    lastName = lastName.CharAt(0).toUpperCase() + lastName.slice(1);
+
+    return firstName + " " + lastName;
+}

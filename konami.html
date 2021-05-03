@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Konami Code</title>
+    <style>
+        body {
+            background: #feff00;
+            color: black;
+        }
+        .center {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            font-family: Courier, sans-serif;
+            margin-top: 10em;
+            font-size: xx-large;
+        }
+        p {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            text-align: center;
+            font-family: Courier, sans-serif;
+            background: black;
+            color: white;
+            margin:0 500px ;
+        }
+
+        @media screen and (min-width: 768px) {
+            body {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            p {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                text-align: center;
+                font-family: Courier, sans-serif;
+                background: black;
+                color: white;
+                margin:0 250px ;
+            }
+
+
+}
+    </style>
+</head>
+<body class="body">
+
+<div class="center">Do you think you have what it takes?</div>
+<p> insert password || never know </p>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+    var userInput = "";
+    $(document).keyup(function(event) {
+        console.log(event.keyCode);
+        userInput += (event.keyCode);
+        setTimeout(function (){
+        }, 3000);
+
+        //using key codes
+        var passwordKey = "3838404037393739666513"
+        if(userInput === passwordKey){
+            alert("ACCESS GRANTED");
+            var video = $('<video />', {
+                id: 'video',
+                src: 'img/secret-club.mp4',
+                type: 'mp4',
+                controls: true,
+                autoplay: true,
+                muted: true,
+            });
+            video.appendTo($('body')).css({
+                'height': '100%',
+                'position': 'absolute',
+                'top': '0',
+                'margin-left': '-8px' ,
+                'width': '100%',
+                'object-fit': 'cover'
+            });
+        }
+        //     else {
+        //     $('div').html("404 I dont think so").css({
+        //         'display':'flex',
+        //         'color':'black',
+        //         'background':'white',
+        //         'justify-content':'center'
+        //     })
+        // }
+    })
+</script>
+<!--<video  autoplay muted loop class="secretClub">-->
+<!--    <source src="img/secret-club.mp4">-->
+
+<!--</video>-->
+</body>
+</html>

@@ -8,6 +8,7 @@
         body {
             background: #feff00;
             color: black;
+            margin: 0;
         }
 
         .center {
@@ -61,15 +62,24 @@
     <script src="js/jquery-3.6.0.min.js"></script>
     <script>
         var userInput = "";
+        let timer;
         $(document).keyup(function (event) {
             console.log(event.keyCode);
             userInput += (event.keyCode);
-            setTimeout(function () {
+            clearTimeout(timer);
+            $('div').html("Do you think you have what it takes?").css({
+                background: '#feff00',
+                color: 'black',
+            });
+            timer = setTimeout(function () {
+                userInput = "";
+                alert("too slow");
             }, 3000);
 
             //using key codes
             var passwordKey = "3838404037393739666513"
             if (userInput === passwordKey) {
+                clearTimeout(timer);
                 alert("ACCESS GRANTED");
                 var video = $('<video />', {
                     id: 'video',
@@ -83,19 +93,19 @@
                     'height': '100%',
                     'position': 'absolute',
                     'top': '0',
-                    'margin-left': '-8px',
                     'width': '100%',
                     'object-fit': 'cover'
                 });
+            } else if (!passwordKey.includes(userInput)) {
+                clearTimeout(timer);
+                userInput = "";
+                $('div').html("404 I dont think so").css({
+                    'display': 'flex',
+                    'color': 'black',
+                    'background': 'white',
+                    'justify-content': 'center'
+                })
             }
-            //     else {
-            //     $('div').html("404 I dont think so").css({
-            //         'display':'flex',
-            //         'color':'black',
-            //         'background':'white',
-            //         'justify-content':'center'
-            //     })
-            // }
         })
     </script>
     <!--<video  autoplay muted loop class="secretClub">-->

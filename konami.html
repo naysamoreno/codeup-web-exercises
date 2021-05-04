@@ -56,31 +56,99 @@
 
 <body class="body">
 
-    <div class="center">Do you think you have what it takes?</div>
+    <div id="prompt" class="center">Do you think you have what it takes?</div>
     <p> insert password || never know </p>
 
     <script src="js/jquery-3.6.0.min.js"></script>
     <script>
+        var hasAccess = false
+        function css(element, properties) {
+            Object.assign(element.style, properties);
+            return element
+        }
+        function Button(text, onClick) {
+            var button = document.createElement('button');
+            css(button, {
+                background: '#afbcfb',
+                padding: '12px',
+                cursor: 'pointer',
+                borderRadius: '4px',
+                border: 'none',
+                'font-size': 'xx-large',
+            })
+            button.onclick = onClick
+            button.innerHTML = text
+            return button;
+        }
+        function Alert(text) {
+            var id = 'naysays-alert'
+            var alertContainer = document.createElement("div");
+            alertContainer.tabIndex = 1;
+            alertContainer.id = id
+            css(alertContainer, {
+                position: 'fixed',
+                top: '50%',
+                left: '50%',
+                'font-family': 'courier',
+                display: 'flex',
+                'flex-direction': 'column',
+                'align-items': 'center',
+                gap: '12px',
+                padding: '16px',
+                transform: 'translate(-50%, -50%)',
+                borderRadius: '4px',
+                background: '#7ced7c',
+                'min-width': '50%',
+                'min-height': '50%',
+                'font-size': 'xx-large',
+                'box-shadow': '12px 12px 2px 1px rgba(0, 0, 255, .2)',
+                'z-index': 2000000
+            })
+            var alertBody = document.createElement('p')
+            alertBody.innerHTML = text
+            css(alertBody, {
+                flex: 1,
+                color: 'black',
+                'white-space': 'nowrap',
+                background: 'transparent'
+            })
+            alertContainer.appendChild(alertBody)
+            var button = Button('OK', function () {
+                document.body.removeChild(alertContainer)
+            })
+            alertContainer.onkeyup = function (e) {
+                if (e.keyCode === 13) document.body.removeChild(alertContainer)
+            }
+            alertContainer.appendChild(button)
+            var oldAlert = document.getElementById(id)
+            if (oldAlert)
+                document.body.replaceChild(alertContainer, oldAlert)
+            else document.body.appendChild(alertContainer)
+            alertContainer.focus();
+        }
+
         var userInput = "";
         let timer;
         $(document).keyup(function (event) {
+            if (hasAccess) return
             console.log(event.keyCode);
             userInput += (event.keyCode);
             clearTimeout(timer);
-            $('div').html("Do you think you have what it takes?").css({
+            $('div#prompt').html("Do you think you have what it takes?").css({
                 background: '#feff00',
                 color: 'black',
             });
             timer = setTimeout(function () {
                 userInput = "";
-                alert("too slow");
+                Alert("too slow");
             }, 3000);
 
             //using key codes
             var passwordKey = "3838404037393739666513"
             if (userInput === passwordKey) {
+                hasAccess = true;
                 clearTimeout(timer);
-                alert("ACCESS GRANTED");
+                Alert("ACCESS GRANTED");
                 var video = $('<video />', {
                     id: 'video',
                     src: 'img/puppiness.mp4',
@@ -99,7 +167,7 @@
             } else if (!passwordKey.includes(userInput)) {
                 clearTimeout(timer);
                 userInput = "";
-                $('div').html("404 I dont think so").css({
+                $('div#prompt').html("404 I dont think so").css({
                     'display': 'flex',
                     'color': 'black',
                     'background': 'white',

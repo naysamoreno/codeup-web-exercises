@@ -19,19 +19,25 @@
     <script src="https://kit.fontawesome.com/968ac4e7b1.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
 <dl class="container">
-    <dt>Factoid1 <a href="#"><i class="fas fa-info-circle"></i></a></dt>
+    <a id="moreInfo" href="#"><i class="fas fa-info-circle"></i></a>
+
+    <dt>Factoid1 </dt>
     <dd class="invisible">definition</dd>
 
-    <dt>Factoid2 <a href="#"><i class="fas fa-info-circle"></i></a></dt>
+    <dt>Factoid2 </dt>
     <dd class="invisible">definition</dd>
 
-    <dt>Factoid3 <a href="#"><i class="fas fa-info-circle"></i></a></dt>
+    <dt>Factoid3</dt>
     <dd class="invisible">definition</dd>
 
 </dl>
+<script src="js/jquery-3.6.0.min.js"></script>
 <script>
-
+    $('#moreInfo').click(function (){
+        $('dd').toggleClass('invisible');
+    });
 
 </script>
 </body>

@@ -11,26 +11,73 @@
             align-content: center;
 
         }
+        h1 {
+            text-align: center;
+            font-family: Courier, sans-serif;
+        }
+        a {
+            margin-bottom: 25px;
+        }
+        dl{
+            font-family: Courier, sans-serif;
+        }
+        dt {
+            font-weight: bold;
+        }
+        dd {
+            margin: 25px 0;
+        }
         .invisible {
             visibility: hidden;
+        }
+        .highlight {
+            background: yellow;
         }
 
     </style>
     <script src="https://kit.fontawesome.com/968ac4e7b1.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
+<h1>10 Random Facts You Should Know about National Parks in the US</h1>
 <dl class="container">
-    <a id="moreInfo" href="#"><i class="fas fa-info-circle"></i></a>
+    <a id="moreInfo" href="#">Click Here for More info <i class="fas fa-info-circle"></i></a>
 
-    <dt>Factoid1 </dt>
-    <dd class="invisible">definition</dd>
+    <dt>How much land is protected </dt>
+    <dd class="invisible">The National Park Service protects over 84 million acres of wild landscapes and historic sites</dd>
 
-    <dt>Factoid2 </dt>
-    <dd class="invisible">definition</dd>
+    <dt>Rivers in the US </dt>
+    <dd class="invisible">The Colorado River and the Green River flow through Utah’s national parks, offering some of the best whitewater rafting anywhere in the country.</dd>
 
-    <dt>Factoid3</dt>
-    <dd class="invisible">definition</dd>
+    <dt>Park in Alaska </dt>
+    <dd class="invisible">Alaska is home to one of the least visited national parks: Kobuk Valley National Park receives just 3,000 visitors per year.</dd>
+    <dt>Mammoth Cave National Park</dt>
+    <dd class="invisible">Mammoth Cave National Park in Kentucky has the longest cave system in the world with more than 3,454 mapped
+        miles.
+    </dd>
+
+    <dt>Carlsbad Caverns</dt>
+    <dd class="invisible">Carlsbad Caverns National Park in New Mexico is home to the nation's deepest cave, which is 1,593 feet deep.
+    </dd>
+
+    <dt>Artic Circle</dt>
+    <dd class="invisible">There are two national parks located north of the Arctic Circle: Gates of the Arctic National Park and the Kobuk Valley National Park. Both are obviously in Alaska.
+    </dd>
+
+    <dt>National Monument in Oregon</dt>
+    <dd class="invisible">Forty million years of mammalian history is preserved in fossils at the John Day Fossil Beds National Monument in Oregon.
+    </dd>
+
+    <dt>Yellowstone National Park</dt>
+    <dd class="invisible">The Yellowstone Caldera, Yellowstone National Park, is a super volcano that is responsible for three of the world’s six biggest volcano eruptions.
+    </dd>
+
+    <dt>White Sands National Monument</dt>
+    <dd class="invisible">White Sands National Monument spans more than 176,000 acres of New Mexico desert and contains the largest gypsum dune fields in the world.</dd>
+
+    <dt>Hawaii National Park</dt>
+    <dd class="invisible">Mauna Loa Volcano in Hawaii Volcanoes National Park is the largest volcano on earth both in terms of volume and height above its base. It contains about 19,000 cubic miles of lava and rises more than 50,000 feet above its base, including the portion which is beneath the ocean.</dd>
+
+
 
 </dl>
 <script src="js/jquery-3.6.0.min.js"></script>
@@ -38,7 +85,10 @@
     $('#moreInfo').click(function (){
         $('dd').toggleClass('invisible');
     });
-
+// bonus
+    $("dt").click(function() {
+        $(this).toggleClass("highlight");
+    });
 </script>
 </body>
 </html>

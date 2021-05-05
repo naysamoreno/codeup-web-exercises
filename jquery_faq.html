@@ -124,10 +124,23 @@
           $(this).children().last().css('background', 'yellow')
       });
     });
+    // my solution
+    // $('h3').click(function () {
+    //     $('li').toggleClass('bold')
+    // })
+// correct solution
     $('h3').click(function () {
-        $('li').toggleClass('bold')
-    })
+        $(this).nextAll().css('font-weight', 'bold');
+    });
+    // $('li').click(function () {
+    //
+    // })
 
+    $('ul').click(function () {
+        $(this).children("li").first().css({
+            'color': 'blue'
+        });
+    });
     // second bonus
 </script>
 </body>

@@ -33,7 +33,9 @@
         .highlight {
             background: yellow;
         }
-
+        .bold {
+            font-weight: bold;
+        }
 
     </style>
     <script src="https://kit.fontawesome.com/968ac4e7b1.js" crossorigin="anonymous"></script>
@@ -116,8 +118,17 @@
     $("dt").click(function() {
         $(this).toggleClass("highlight");
     });
+// second exercise h3 and ul - lis
+    $('button').click(function() {
+      $('ul').each(function() {
+          $(this).children().last().css('background', 'yellow')
+      });
+    });
+    $('h3').click(function () {
+        $('li').toggleClass('bold')
+    })
 
-
+    // second bonus
 </script>
 </body>
 </html>

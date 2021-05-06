@@ -31,4 +31,12 @@
         ],
         "price": 10
     }
+, {
+    "title": "Power-Tools",
+    "quantity": 52,
+    "categories": [
+        "tool"
+    ],
+    "price": 45
+}
 ]

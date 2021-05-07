@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Mapbox</title>
-    <-- MAPBOX TABS-->
+<!--    MAPBOX TABS  -->
 
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
 
@@ -16,13 +16,68 @@
 <script src="js/keys.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
 <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoibmF5c2Ftb3Jlbm8iLCJhIjoiY2tvZWc2dnN3MGE1YTJ2cWVlNHc5ZTNwMSJ9.aWx-DZA0ruxEpkKGTWN8rA';
+    // mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+    // var map = new mapboxgl.Map({
+    //     container: 'map', // container ID
+    //     style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    //     center: [-98.4916, 29.4252], // starting position [lng, lat]
+    //     zoom: 9 // starting zoom
+    // });
+    //
+    // //add control ??
+    // var marker = new mapboxgl.Marker({
+    //     color:'red';
+    // })
+    //     .setLngLat([30.5, 50.5])
+    //     .addTo(map);
+    //
+    // var popup = new mapboxgl.Popup({offset: popupOffsets, className: 'my-class'})
+    //     .setLngLat(e.lngLat)
+    //     .setHTML("<h1>Hello World!</h1>")
+    //     .setMaxWidth("300px")
+    //     .addTo(map);
+    //
+    // marker.setPopup(popup);
+
+    // Instantiation of Map Object
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
     var map = new mapboxgl.Map({
         container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/streets-v11', // style URL
-        center: [-98.4916, 29.4252], // starting position [lng, lat]
-        zoom: 9 // starting zoom
     });
+
+    map.setStyle('mapbox://styles/mapbox/dark-v10')
+    map.setZoom(9)
+    map.setCenter([-98.4916, 29.4252])
+
+    console.log(map.getCenter());
+
+    map.addControl(new mapboxgl.NavigationControl());
+
+    // Instantiation of Marker Object
+
+    var marker = new mapboxgl.Marker({
+        color: 'red',
+    })
+        .setLngLat([-98.4861, 29.4260])
+        .setDraggable(true)
+        .addTo(map);
+
+    marker.on('dragend', function() {
+        alert(marker.getLngLat().toString())
+    })
+
+    // Instantiation of Popup object
+
+    var popup = new mapboxgl.Popup()
+        .setLngLat(marker.getLngLat())
+        .setHTML("<h3>The Alamo</h3>")
+        .setMaxWidth("300px")
+        .addTo(map);
+
+    console.log(popup)
+
+    marker.setPopup(popup);
+    popup.addClassName('popup-font');
 </script>
 </body>
 </html>

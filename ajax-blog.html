@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Blog</title>
+    <script src="https://kit.fontawesome.com/968ac4e7b1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid bg-info text-light" style="font-family: Courier, sans-serif;">
+    <div class="container">
+        <h1 class="display-4">HelloWorld();</h1>
+        <p class="lead">A Secret Life of an American Full Stack Software Developer <i class="fas fa-laptop-code"></i> </p>
+    </div>
+</div>
+
+<div class="card-body">
+    <div  id="blog">
+
+    </div>
+    <button id="refresh" class="btn btn-primary">Latest Update</button>
+</div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+(function (){
+    'use strict'
+//     function blogPost() {
+//     $('#blog').html('');
+//     $.ajax('data/blog.json').done(function (blogPost) {
+//         console.log(blogPost);
+//         for(var i = 0; i < blogPost.length; i++) {
+//
+//             var container = $("<div/>").attr({ id: 'blogPost-' + (i + 1)})
+//             var date = $("<p/>").append(blogPost[i].date)
+//                 .css({
+//                     fontSize: '12px'
+//                 }).attr({
+//                     class: 'blog-date'
+//                 })
+//
+//             var title = $("<h1/>").attr({
+//                 class: "card bg-primary text-light d-flex flex-row justify-content-between align-items-center",
+//             }).append(blogPost[i].title, date)
+//
+//             var content = $("<p/>").append(blogPost[i].content)
+//             var categories = $("<p/>").append(blogPost[i].categories)
+//
+//             $('#blog').append(
+//                 container.append(
+//                     title,
+//                     content,
+//                     categories
+//                 )
+//             )
+//
+//
+//             // var htmlStr = '<h1 id=blogPost-' + (i + 1) + '> </h1>';
+//             // htmlStr += '<p class = "card bg-primary text-light ">' + blogPost[i].title + '</p>';
+//             // htmlStr += '<p>' + blogPost[i].content+ '</p>';
+//             // htmlStr += '<p>' + blogPost[i].categories + '</p>';
+//             // $('#blog').append(htmlStr);
+//         }
+//     })
+// }
+//     $('#refresh').click(blogPost);
+//     blogPost();
+    function newPost() {
+        $('#blog').html('');
+        $.ajax('data/blog.json').done(function (posts) {
+            posts.forEach(function (post, index) {
+                $('<div/>').attr({
+
+                })
+            })
+        })
+        console.log('first')
+    }
+    newPost()
+})();
+</script>
+
+
+</body>
+</html>

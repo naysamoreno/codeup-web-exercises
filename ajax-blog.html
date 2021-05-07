@@ -25,58 +25,48 @@
 <script>
 (function (){
     'use strict'
-//     function blogPost() {
-//     $('#blog').html('');
-//     $.ajax('data/blog.json').done(function (blogPost) {
-//         console.log(blogPost);
-//         for(var i = 0; i < blogPost.length; i++) {
+    function blogPost() {
+    $('#blog').html('');
+    $.ajax('data/blog.json').done(function (blogPost) {
+        console.log(blogPost);
+        for(var i = 0; i < blogPost.length; i++) {
+
+            var container = $("<div/>").attr({ id: 'blogPost-' + (i + 1)})
+            var date = $("<p/>").append(blogPost[i].date)
+                .css({
+                    fontSize: '20px'
+                }).attr({
+                    class: 'blog-date'
+                })
+
+            var title = $("<h1/>").attr({
+                class: "card bg-primary text-light d-flex flex-row justify-content-between ",
+            }).append(blogPost[i].title, date)
+
+            var content = $("<p/>").append(blogPost[i].content)
+            var categories = $("<p/>").append(blogPost[i].categories)
+
+            $('#blog').append(
+                container.append(
+                    title,
+                    content,
+                    categories
+                )
+            )
 //
-//             var container = $("<div/>").attr({ id: 'blogPost-' + (i + 1)})
-//             var date = $("<p/>").append(blogPost[i].date)
-//                 .css({
-//                     fontSize: '12px'
-//                 }).attr({
-//                     class: 'blog-date'
-//                 })
 //
-//             var title = $("<h1/>").attr({
-//                 class: "card bg-primary text-light d-flex flex-row justify-content-between align-items-center",
-//             }).append(blogPost[i].title, date)
-//
-//             var content = $("<p/>").append(blogPost[i].content)
-//             var categories = $("<p/>").append(blogPost[i].categories)
-//
-//             $('#blog').append(
-//                 container.append(
-//                     title,
-//                     content,
-//                     categories
-//                 )
-//             )
-//
-//
-//             // var htmlStr = '<h1 id=blogPost-' + (i + 1) + '> </h1>';
+//             // var htmlStr = '<div id=blogPost-' + (i + 1) + '>';
 //             // htmlStr += '<p class = "card bg-primary text-light ">' + blogPost[i].title + '</p>';
 //             // htmlStr += '<p>' + blogPost[i].content+ '</p>';
 //             // htmlStr += '<p>' + blogPost[i].categories + '</p>';
+               // htmlStr += '</div>' ;
 //             // $('#blog').append(htmlStr);
-//         }
-//     })
-// }
-//     $('#refresh').click(blogPost);
-//     blogPost();
-    function newPost() {
-        $('#blog').html('');
-        $.ajax('data/blog.json').done(function (posts) {
-            posts.forEach(function (post, index) {
-                $('<div/>').attr({
+        }
+    })
+}
+    $('#refresh').click(blogPost);
+    blogPost();
 
-                })
-            })
-        })
-        console.log('first')
-    }
-    newPost()
 })();
 </script>
 

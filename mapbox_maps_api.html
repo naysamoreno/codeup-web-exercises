@@ -45,6 +45,17 @@
         .setLngLat(restaurant2.getLngLat())
         .setHTML('<h3> Goros Sushi</h3>');
         restaurant2.setPopup(restaurantPopup2);
+    // ----------
+    var restaurant3 = new mapboxgl.Marker({
+        color: 'green',
+        draggable: false,
+    })
+        .setLngLat([-98.57629045981386, 29.501279662364038])
+        .addTo(map);
+    var restaurantPopup3 = new mapboxgl.Popup()
+        .setLngLat(restaurant3.getLngLat())
+        .setHTML('<h3>Suck it</h3>');
+    restaurant3.setPopup(restaurantPopup3);
 
 </script>
 

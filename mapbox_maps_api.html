@@ -24,39 +24,69 @@
         center: [-98.4861, 29.4260], // starting position [lng, lat]
         zoom: 10 // starting zoom
     });
-    var restaurant1 = new mapboxgl.Marker({
-        color: 'blue',
-        draggable: false,
-    })
-        .setLngLat([-98.4620184374359, 29.558236021757374])
-        .addTo(map);
-    var restaurantPopup1 = new mapboxgl.Popup()
-        .setLngLat(restaurant1.getLngLat())
-        .setHTML('<h3>Gogi Street</h3>');
-        restaurant1.setPopup(restaurantPopup1);
-// ----------
-    var restaurant2 = new mapboxgl.Marker({
-        color: 'red',
-        draggable: false,
-    })
-        .setLngLat([-98.53574924048463, 29.513651708121447])
-        .addTo(map);
-    var restaurantPopup2 = new mapboxgl.Popup()
-        .setLngLat(restaurant2.getLngLat())
-        .setHTML('<h3> Goros Sushi</h3>');
-        restaurant2.setPopup(restaurantPopup2);
-    // ----------
-    var restaurant3 = new mapboxgl.Marker({
-        color: 'green',
-        draggable: false,
-    })
-        .setLngLat([-98.57629045981386, 29.501279662364038])
-        .addTo(map);
-    var restaurantPopup3 = new mapboxgl.Popup()
-        .setLngLat(restaurant3.getLngLat())
-        .setHTML('<h3>Suck it</h3>');
-    restaurant3.setPopup(restaurantPopup3);
+//     var restaurant1 = new mapboxgl.Marker({
+//         color: 'blue',
+//         draggable: false,
+//     })
+//         .setLngLat([-98.4620184374359, 29.558236021757374])
+//         .addTo(map);
+//     var restaurantPopup1 = new mapboxgl.Popup()
+//         .setLngLat(restaurant1.getLngLat())
+//         .setHTML('<h3>Gogi Street</h3>');
+//         restaurant1.setPopup(restaurantPopup1);
+// // ----------
+//     var restaurant2 = new mapboxgl.Marker({
+//         color: 'red',
+//         draggable: false,
+//     })
+//         .setLngLat([-98.53574924048463, 29.513651708121447])
+//         .addTo(map);
+//     var restaurantPopup2 = new mapboxgl.Popup()
+//         .setLngLat(restaurant2.getLngLat())
+//         .setHTML('<h3> Goros Sushi</h3>');
+//         restaurant2.setPopup(restaurantPopup2);
+//     // ----------
+//     var restaurant3 = new mapboxgl.Marker({
+//         color: 'green',
+//         draggable: false,
+//     })
+//         .setLngLat([-98.57629045981386, 29.501279662364038])
+//         .addTo(map);
+//     var restaurantPopup3 = new mapboxgl.Popup()
+//         .setLngLat(restaurant3.getLngLat())
+//         .setHTML('<h3>Suck it</h3>');
+//     restaurant3.setPopup(restaurantPopup3);
 
+    var favRestaurants = [
+        {
+            name: "gogi street",
+            lngLat: [-98.4620184374359, 29.558236021757374],
+            color: 'blue'
+        },
+        {
+            name: "goros Sushi",
+            lngLat: [-98.53574924048463, 29.513651708121447],
+            color: 'red'
+        },
+        {
+            name: "Suck It",
+            lngLat: [-98.57629045981386, 29.501279662364038],
+            color: 'green'
+        }
+    ]
+    function display (restaurants) {
+        var marker = new mapboxgl.Marker({
+            color: restaurants.color,
+            draggable: false,
+        })
+            .setLngLat(restaurants.lngLat)
+            .addTo(map);
+        var popup = new mapboxgl.Popup()
+            .setLngLat(restaurants.lngLat)
+            .setHTML('<h3>' + restaurants.name +'</h3>');
+        marker.setPopup(popup);
+    }
+    favRestaurants.forEach(display);
 </script>
 
 </body>

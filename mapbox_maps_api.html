@@ -10,7 +10,9 @@
 <body>
 
 <div  id='map' style='width: 80vw; height: 80vh; margin: auto;'></div>
+<!--<div id="restuarantInfo">-->
 
+<!--</div>-->
 
 <script src="js/keys.js"></script>
 <script src="js/jquery-3.6.0.min.js"></script>
@@ -87,6 +89,16 @@
         marker.setPopup(popup);
     }
     favRestaurants.forEach(display);
+
+
+    // Zoom to the zoom level 5 without an animated transition
+    map.zoomTo(5);
+    // Zoom to the zoom level 8 with an animated transition
+    map.zoomTo(8, {
+        duration: 2000,
+        offset: [100, 50]
+    });
+
 </script>
 
 </body>

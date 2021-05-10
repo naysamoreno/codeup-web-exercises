@@ -1,0 +1,21 @@
+----------------------------------
+BOM: Browser Object Model
+- allows JS to interact with the web browser
+
+
+Window is the core of the object model
+
+-------------
+SYSTEM DIALOGS
+
+alert(), confirm(), prompt() -- are made available because of the window object;
+
+----------------
+setInterval() and setTimeout()
+
+setInterval() allows code to be executed at a specified time interval and will continue until
+clearInterval() is called
+
+setTimeout() allows code to be executed after a specified time has passed and will only be passed once
+and can be cancelled after clearTimeout() is called
+

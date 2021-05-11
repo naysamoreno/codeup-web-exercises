@@ -25,8 +25,6 @@
         zoom: 8 // starting zoom
     });
 
-    //
-
     // var coordinates = [29.4241, -98.4936];
     // // var coordinates = [];
     // $.ajax('https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=' + coordinates[0] + '&lon=' + coordinates[1] + '&appid=' + WEATHER_MAP_TOKEN)
@@ -45,25 +43,27 @@
         units: "imperial"
     }).done(function(resp) {
         console.log('5 day forcast', resp);
-        console.log(todayDate);
-        for(var i = 0; i < resp.daily.length; i++) {
-            var today = resp.daily[i];
-            var todayDate = new Date(today.dt * 1000)
-            var container = $('<div/>').attr({ id: 'data-' + (i + 1)})
-            var temp = $('<p/>').append(resp.daily[i].temp.day).css({
-
-            })
-            var day =$('<p/>').append(todayDate)
-            .css({
-                fontFamily: 'arial',
-                fontsize: '20px'
-            })
-            var humidity =
-            $('#display').append(container.append(
-                day,
-                humidity
-            ))
+        var arialMedium = {
+            fontFamily: 'arial',
+            fontsize: '20px'
         }
+        function Label(text) {
+            return $('<label/>').append(text).css({ fontWeight: 'bolder' })
+        }
+        resp.daily.forEach(function(today, index) {
+            console.log({today})
+            var container = $('<div/>').attr({ id: 'data-' + (index + 1)})
+            var {humidity, wind_speed, pressure, temp, weather, dt} = today
+
+            $('#display').append(container.append(
+                $('<p/>').append(new Date(dt * 1000).toDateString()).css(arialMedium),
+                $('<p/>').append(parseInt(temp.day), '°'),
+                $('<div/>').append(Label('Description: '), weather[0].description),
+                $('<div/>').append(Label('Humidity: '), humidity),
+                $('<div/>').append(Label('Wind: '), wind_speed),
+                $('<div/>').append(Label('Pressure: '), pressure)
+            ))
+        })
 
     });
 </script>

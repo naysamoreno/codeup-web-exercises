@@ -1,0 +1,5 @@
+Github: Green code button - copy ssh key
+Intellij: file, new, project from version control, paste, clone, new window
+Create and move to new branch: terminal-  git status, git branch savanna-garcia, git branch, git checkout naysa-moreno
+ (or shorthand: git checkout -b naysa-moreno)
+To push: git push origin naysa-moreno

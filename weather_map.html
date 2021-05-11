@@ -6,6 +6,9 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
+<div>Projected Forcast</div>
+<div id="display"></div>
+<div id='map' style='width: 600px; height: 500px;'></div>
 
 
 <script src="js/keys.js"></script>
@@ -13,15 +16,15 @@
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
 
 <script>
+"use strict"
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-98.4936, 29.4241], // starting position [lng, lat]
+        zoom: 8 // starting zoom
+    });
 
-    // mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
-    // var map = new mapboxgl.Map({
-    //     container: 'map', // container ID
-    //     style: 'mapbox://styles/mapbox/streets-v11', // style URL
-    //     center: [-74.2179, 43.2994], // starting position [lng, lat]
-    //     zoom: 5 // starting zoom
-    // });
-    //
     //
 
     // var coordinates = [29.4241, -98.4936];
@@ -35,13 +38,32 @@
     //     });
 
 
-    $.get('http://api.openweathermap.org/data/2.5/weather', {
+    $.get('https://api.openweathermap.org/data/2.5/onecall', {
         APPID: WEATHER_MAP_TOKEN,
         lat: 29.4241,
         lon: -98.4936,
         units: "imperial"
-    }).done(function(data) {
-        console.log('5 day forcast', data);
+    }).done(function(resp) {
+        console.log('5 day forcast', resp);
+        console.log(todayDate);
+        for(var i = 0; i < resp.daily.length; i++) {
+            var today = resp.daily[i];
+            var todayDate = new Date(today.dt * 1000)
+            var container = $('<div/>').attr({ id: 'data-' + (i + 1)})
+            var temp = $('<p/>').append(resp.daily[i].temp.day).css({
+
+            })
+            var day =$('<p/>').append(todayDate)
+            .css({
+                fontFamily: 'arial',
+                fontsize: '20px'
+            })
+            var humidity =
+            $('#display').append(container.append(
+                day,
+                humidity
+            ))
+        }
 
     });
 </script>

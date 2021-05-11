@@ -6,9 +6,20 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
+<style>
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
 <div>Projected Forcast</div>
 <div id="display"></div>
-<div id='map' style='width: 600px; height: 500px;'></div>
+<div id='map' style='width: 600px; height: 500px;'>
+</div>
 
 
 <script src="js/keys.js"></script>
@@ -35,6 +46,31 @@
     //         console.log(todayDate);
     //     });
 
+    var dateContainer = {
+        fontFamily: 'arial',
+        fontsize: '20px',
+        background: '#f7f7f7',
+        padding: '20px 0'
+    }
+    var bottomBorder = {
+        paddingBottom: '10px',
+        borderBottom: '1px solid #dedede'
+    }
+    function Label(text) {
+        return $('<label/>').append(text).css({ fontWeight: 'bolder' })
+    }
+    function Spinner(width='100px') {
+        return $('<div/>').css({
+            borderTop: '5px solid #0CB1C4',
+            borderLeft: '5px solid #0CB1C4',
+            borderRadius: '50%',
+            width,
+            height: width,
+            animation: 'spin 0.9s linear infinite'
+        })
+    }
+    var display = $('#display').css({display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '300px'})
+    display.html(Spinner())
 
     $.get('https://api.openweathermap.org/data/2.5/onecall', {
         APPID: WEATHER_MAP_TOKEN,
@@ -43,28 +79,31 @@
         units: "imperial"
     }).done(function(resp) {
         console.log('5 day forcast', resp);
-        var arialMedium = {
-            fontFamily: 'arial',
-            fontsize: '20px'
-        }
-        function Label(text) {
-            return $('<label/>').append(text).css({ fontWeight: 'bolder' })
-        }
+
+        var forecast = $('<div/>').css({display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center', margin: '16px' })
         resp.daily.forEach(function(today, index) {
-            console.log({today})
-            var container = $('<div/>').attr({ id: 'data-' + (index + 1)})
+            if(index >= 5) return
+            var container = $('<div/>').attr({ id: 'data-' + (index + 1)}).css({
+                textAlign: 'center',
+                border: '1px solid #a4a4a4',
+                borderRadius: '4px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '16px',
+                width: '300px'
+            })
             var {humidity, wind_speed, pressure, temp, weather, dt} = today
 
-            $('#display').append(container.append(
-                $('<p/>').append(new Date(dt * 1000).toDateString()).css(arialMedium),
-                $('<p/>').append(parseInt(temp.day), '°'),
-                $('<div/>').append(Label('Description: '), weather[0].description),
-                $('<div/>').append(Label('Humidity: '), humidity),
-                $('<div/>').append(Label('Wind: '), wind_speed),
-                $('<div/>').append(Label('Pressure: '), pressure)
+            forecast.append(container.append(
+                $('<div/>').append(new Date(dt * 1000).toDateString()).css(dateContainer),
+                $('<div/>').css(bottomBorder).append(parseInt(temp.day), '°'),
+                $('<div/>').css({padding: '10px'}).append(Label('Description: '), weather[0].description),
+                $('<div/>').css(bottomBorder).append(Label('Humidity: '), humidity),
+                $('<div/>').css(bottomBorder).append(Label('Wind: '), wind_speed),
+                $('<div/>').css(bottomBorder).append(Label('Pressure: '), pressure),
             ))
         })
-
+        display.html(forecast)
     });
 </script>
 </body>

@@ -6,21 +6,22 @@
     <script src="https://kit.fontawesome.com/968ac4e7b1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #f7f7f7;
+        }
+    </style>
 </head>
 <body>
-<style>
-    @keyframes spin {
-        to {
-            transform: rotate(360deg);
-        }
-    }
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background-color: #f7f7f7;
-    }
-</style>
+
 <div style="position: sticky; top: 0; z-index: 1000;">
     <div id="header" style="display: flex; justify-content: space-between; align-items: center; padding: 12px;">
         <h3> Codeup Weather App - 5 Day Forecast </h3>
@@ -68,10 +69,9 @@ var updateCoordinates = {
     lat: 29.4241,
     lon: -98.4936,
 }
-
+// CSS for Results
 $('#results').html('Results for: San Antonio').css({
     color: '#003880',
-    width: '100vw',
     margin: '20px',
     display: 'flex',
     flexDirection: 'column',
@@ -82,8 +82,11 @@ $('#results').html('Results for: San Antonio').css({
 marker.setPopup(popup);
 marker.on('dragend', function() {
     var {lat, lng} = marker.getLngLat();
+    console.log({lat, lng})
     updateCoordinates = {lat, lon: lng}
     getWeatherCoordinates();
+
+    //JS for results using dragged marker
     $('#results').html('')
     $('#results').append(
         $('<div/>').append('Results for:'),
@@ -107,15 +110,7 @@ function getResults() {
 }
 
 $("#btn").click(getResults);
-    // var coordinates = [29.4241, -98.4936];
-    // // var coordinates = [];
-    // $.ajax('https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=' + coordinates[0] + '&lon=' + coordinates[1] + '&appid=' + WEATHER_MAP_TOKEN)
-    //     .done(function (resp) {
-    //         console.log(resp);
-    //         var today = resp.daily[0];
-    //         var todayDate = new Date(today.dt * 1000)
-    //         console.log(todayDate);
-    //     });
+
     $('#header').css({
         display: 'flex',
         background: '#03a9f4',
@@ -148,7 +143,15 @@ $("#btn").click(getResults);
         })
     }
     var display = $('#display').css({display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '16px', padding: '0 8px'})
-
+// var coordinates = [29.4241, -98.4936];
+// // var coordinates = [];
+// $.ajax('https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=' + coordinates[0] + '&lon=' + coordinates[1] + '&appid=' + WEATHER_MAP_TOKEN)
+//     .done(function (resp) {
+//         console.log(resp);
+//         var today = resp.daily[0];
+//         var todayDate = new Date(today.dt * 1000)
+//         console.log(todayDate);
+//     });
 function getWeatherCoordinates() {
         display.html(Spinner())
     $.get('https://api.openweathermap.org/data/2.5/onecall', {
@@ -205,7 +208,7 @@ getWeatherCoordinates()
 //     };
 // };
 // var getWeather = debounce(getResults, 1000)
-$("#input").keyup(getWeather)
+// $("#input").keyup(getWeather)
 </script>
 </body>
 </html>

@@ -177,6 +177,7 @@ $("#btn").click(getResults);
 //         console.log(todayDate);
 //     });
 function getWeatherCoordinates({lat, lng}) {
+    // Takes focus away from map to show results
     $('#input').focus();
     display.html(Spinner());
     $.get('https://api.openweathermap.org/data/2.5/onecall', {
@@ -188,7 +189,7 @@ function getWeatherCoordinates({lat, lng}) {
         console.log('5 day forcast', resp);
         display.html('');
         resp.daily.forEach(function (today, index) {
-            if (index >= 5) return
+            if (index <= 5) {
             var container = $('<div/>').attr({id: 'data-' + (index + 1)}).css({
                 textAlign: 'center',
                 border: '2px solid #a4a4a4',
@@ -199,9 +200,10 @@ function getWeatherCoordinates({lat, lng}) {
                 width: '300px',
                 flex: '1 1 250px',
                 background: '#ffffff21',
-                opacity: 0,
+                opacity: 0, // so animation starts at 0
                 'backdrop-filter': 'blur(10px)'
             })
+            }
             // ES6
             var {humidity, wind_speed, pressure, temp, weather, dt} = today
             display.append(container.append(
@@ -214,6 +216,7 @@ function getWeatherCoordinates({lat, lng}) {
                 $('<div/>').append(Label('Wind: '), wind_speed),
                 $('<div/>').append(Label('Pressure: '), pressure),
             ))
+            // fade in opacity to 1
             container.animate(fadein, 500)
         })
     });

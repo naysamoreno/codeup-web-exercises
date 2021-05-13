@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Practice</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1 id="button-text"></h1>
+<button id="btn">click here</button>
+<div id="newContainer"></div>
+<button id="stopBtn">STOP</button>
+<script>
+    var clearHtml;
+    $('#btn').click(function () {
+        clearTimeout(clearHtml)
+        clearHtml = setTimeout(function () {
+            $('#button-text').html('')
+        }, 5000)
+        $('#button-text').append('you clicked the button')
+    })
+
+    var stop = setInterval(function () {
+        $('#newContainer').append('joel wants to add this text')
+    }, 2000)
+
+    $('#stopBtn').css({background: 'red', color: 'white'}).click(function () {
+        clearInterval(stop)
+    })
+
+
+
+</script>
+</body>
+</html>

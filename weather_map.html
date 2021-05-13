@@ -111,6 +111,11 @@ mapContainer.focusout(function () {
     display.animate(fadein, 500);
 })
 
+function showResults() {
+    // Takes focus away from map to show results
+    $('#input').focus();
+}
+
 marker.on('dragend', function(e) {
     // Object destructuring
     // var lngLat = marker.getlnglat()
@@ -178,8 +183,7 @@ $("#btn").click(getResults);
 //         console.log(todayDate);
 //     });
 function getWeatherCoordinates({lat, lng}) {
-    // Takes focus away from map to show results
-    $('#input').focus();
+    showResults();
     display.html(Spinner());
     $.get('https://api.openweathermap.org/data/2.5/onecall', {
         APPID: WEATHER_MAP_TOKEN,
@@ -189,8 +193,7 @@ function getWeatherCoordinates({lat, lng}) {
     }).done(function (resp) {
         console.log('5 day forcast', resp);
         display.html('');
-        resp.daily.forEach(function (today, index) {
-            if (index <= 5) {
+        resp.daily.slice(0, 5).forEach(function (today, index) {
             var container = $('<div/>').attr({id: 'data-' + (index + 1)}).css({
                 textAlign: 'center',
                 border: '2px solid #a4a4a4',
@@ -204,7 +207,6 @@ function getWeatherCoordinates({lat, lng}) {
                 opacity: 0, // so animation starts at 0
                 'backdrop-filter': 'blur(10px)'
             })
-            }
             // ES6
             var {humidity, wind_speed, pressure, temp, weather, dt} = today
             display.append(container.append(
@@ -227,6 +229,8 @@ getWeatherCoordinates({
     lng: -98.4936,
 })
 //David Walsh Blog: https://davidwalsh.name › javascript-debounce-function
+// Function that wraps another function and calls it after a specified time
+// Every time the debounced function is called it resets the timer
 function debounce(func, wait, immediate) {
     var timeout;
     return function() {
@@ -240,9 +244,12 @@ function debounce(func, wait, immediate) {
         timeout = setTimeout(later, wait);
         if (callNow) func.apply(context, args);
     };
-};
-var getWeather = debounce(getResults, 1000)
-searchInput.keyup(getWeather)
+}
+// calls getResults 1 second after the last time it was called
+var getWeather = debounce(getResults, 1000);
+// resets every time a key is released
+searchInput.keyup(getWeather);
+
 </script>
 </body>
 </html>

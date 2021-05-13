@@ -81,6 +81,7 @@ var marker = new mapboxgl.Marker({
 var display = $('#display').css({display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '16px', padding: '0 8px'})
 var mapContainer = $('#map')
 var results = $('#results')
+var searchInput = $("#input")
 // CSS for Results
 results.html('Results for: San Antonio').css({
     color: '#003880',
@@ -129,7 +130,7 @@ marker.on('dragend', function(e) {
 })
 
 function getResults() {
-    var userInput = $("#input").val();
+    var userInput = searchInput.val();
     if(userInput) {
         geocode(userInput, MAPBOX_ACCESS_TOKEN).then(function (info) {
             // ES6: var [lng, lat] = info
@@ -241,7 +242,7 @@ function debounce(func, wait, immediate) {
     };
 };
 var getWeather = debounce(getResults, 1000)
-$("#input").keyup(getWeather)
+searchInput.keyup(getWeather)
 </script>
 </body>
 </html>

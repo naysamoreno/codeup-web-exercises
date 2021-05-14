@@ -94,9 +94,11 @@ results.html('Results for: San Antonio').css({
     textShadow: 'rgb(153 167 175) -2px -1px 10px'
 })
 // jQuery animation properties
+//visible
 var fadein = {
     opacity: 1
 }
+//transparent
 var fadeout = {
     opacity: 0
 }
@@ -162,6 +164,8 @@ $("#btn").click(getResults);
     function Label(text) {
         return $('<label/>').append(text).css({ fontWeight: 'bolder' })
     }
+
+    //
     function Spinner(width='100px') {
         return $('<div/>').css({
             borderTop: '3px solid #0CB1C4',
@@ -204,7 +208,7 @@ function getWeatherCoordinates({lat, lng}) {
                 width: '300px',
                 flex: '1 1 250px',
                 background: '#ffffff21',
-                opacity: 0, // so animation starts at 0
+                opacity: 0, // starts invisibe so animation can fade in
                 'backdrop-filter': 'blur(10px)'
             })
             // ES6
@@ -213,8 +217,8 @@ function getWeatherCoordinates({lat, lng}) {
                 $('<div/>').append(new Date(dt * 1000).toDateString()).css(dateContainer),
                 $('<div/>').css({ paddingBottom: '10px', borderBottom: '1px solid #a4a4a4' }).append(parseInt(temp.day), '°'),
                 // string interpelation when using the ` backtic you can insert ${} jquery without concatinating
-                $(`<img style='width: 60px; margin: auto' src="http://openweathermap.org/img/w/${weather[0].icon}.png"/>`), +
-                    $('<div/>').css({padding: '10px'}).append(Label('Description: '), weather[0].description),
+                $(`<img style='width: 60px; margin: auto' src="http://openweathermap.org/img/w/${weather[0].icon}.png"/>`),
+                    $('<div/>').css({padding: '10px'}).append(Label('Description:'),' ', weather[0].description),
                 $('<div/>').append(Label('Humidity: '), humidity),
                 $('<div/>').append(Label('Wind: '), wind_speed),
                 $('<div/>').append(Label('Pressure: '), pressure),

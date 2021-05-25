@@ -11,15 +11,15 @@
     const fizzBuzz = numTil => {
         for (let x = 1; x <= numTil; x++) {
             if (x % 3 === 0 && x % 5 === 0) {
-                return console.log("FizzBuzz")
+                 console.log("FizzBuzz")
             } else if (x % 3 === 0) {
-                return console.log("Fizz")
+                 console.log("Fizz")
             } else if (x % 5 === 0) {
-                return console.log("buzz")
+                 console.log("buzz")
             } else {
-                return console.log (x)
+                 console.log (x)
             }
         }
     }
-    console.log(fizzBuzz(30));
+ fizzBuzz(30);
 })

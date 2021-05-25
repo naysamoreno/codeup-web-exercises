@@ -44,3 +44,15 @@
     fizzBuzz(30);
 >>>>>>> f6e02d7 (fizzBuzz warmup)
 })
+
+function seven (input) {
+    if (typeof input === "string" || typeof input === "number") {
+        return console.log(7)
+    } else
+    return console.log(7)
+}
+seven('boop');
+
+//Davids answer
+
+const returnSeven = () => 7;

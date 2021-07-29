@@ -122,4 +122,4 @@
     }
 
     console.log(applyDiscount(100, 2));
-}();
+}());
